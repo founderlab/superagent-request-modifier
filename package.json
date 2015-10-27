@@ -1,0 +1,30 @@
+{
+  "name": "superagent-request-modifier",
+  "version": "0.0.1",
+  "description": "Patch superagent to add headers or queries to each request on a given host",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Gwilym Humphreys",
+    "url": "https://github.com/gwilymhumphreys"
+  },
+  "license": "",
+  "scripts": {
+    "prepublish": "rm -rf ./lib && babel ./src --ignore '/node_modules/' --out-dir ./lib",
+    "build": "rm -rf ./lib && babel ./src --ignore '/node_modules/' --out-dir ./lib",
+    "watch": "rm -rf ./lib && babel ./src --ignore '/node_modules/' --watch --out-dir ./lib",
+    "test": "eval $(cat test/.env) mocha test/**/*.tests.js"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.20",
+    "eslint": "^0.24.0",
+    "expect": "^1.12.2",
+    "express": "^4.13.3",
+    "mocha": "^2.2.5",
+    "superagent": "^0.18.0"
+  }
+}
