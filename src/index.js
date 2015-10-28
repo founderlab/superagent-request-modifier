@@ -3,7 +3,7 @@ import size from 'lodash/collection/size'
 import isString from 'lodash/lang/isString'
 
 class RequestModifier {
-  constructor(options) {
+  constructor(options={}) {
     this.queries = options.queries || {}
     this.headers = options.headers || {}
     this.hostname = options.hostname
