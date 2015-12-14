@@ -21,7 +21,7 @@
   "dependencies": {
     "lodash": "^3.10.1"
   },
-  "peerDependencies": {,
+  "peerDependencies": {
     "superagent": "^0.18.0"
   },
   "devDependencies": {
