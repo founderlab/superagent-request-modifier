@@ -6,7 +6,7 @@ Use this to e.g. send access tokens with mobile api requests
 
 Usage:
 
-```
+```javascript
 import request from 'superagent'
 import configureModifier from 'superagent-request-modifier'
 
