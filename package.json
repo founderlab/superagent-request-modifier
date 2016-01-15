@@ -19,7 +19,7 @@
     "test": "eval $(cat test/.env) mocha test/**/*.tests.js"
   },
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^4.0.0"
   },
   "peerDependencies": {
     "superagent": "^0.18.0"

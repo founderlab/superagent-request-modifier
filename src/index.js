@@ -1,6 +1,6 @@
-import extend from 'lodash/object/extend'
-import size from 'lodash/collection/size'
-import isString from 'lodash/lang/isString'
+import extend from 'lodash/extend'
+import size from 'lodash/size'
+import isString from 'lodash/isString'
 
 class RequestModifier {
   constructor(options={}) {
