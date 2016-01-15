@@ -1,6 +1,4 @@
-import extend from 'lodash/extend'
-import size from 'lodash/size'
-import isString from 'lodash/isString'
+import _ from 'lodash'
 
 class RequestModifier {
   constructor(options={}) {
@@ -13,14 +11,14 @@ class RequestModifier {
     let attrs = {}
     if (arguments.length === 2) attrs[attributes] = value
     else attrs = attributes
-    extend(this.queries, attrs)
+    _.extend(this.queries, attrs)
   }
 
   setHeader(attributes, value) {
     let attrs = {}
     if (arguments.length === 2) attrs[attributes] = value
     else attrs = attributes
-    extend(this.headers, attrs)
+    _.extend(this.headers, attrs)
   }
 
   owns(url) {
@@ -44,20 +42,20 @@ export default function configure(superagent, options) {
     if (request_modifier.owns(this.url)) {
 
       // add queries
-      if (size(request_modifier.queries)) {
+      if (_.size(request_modifier.queries)) {
         const queries = {}
 
         for (const key in request_modifier.queries) {
           if (!this.url.match(new RegExp(`[?&]${key}`))) {
             const val = request_modifier.queries[key]
-            queries[key] = isString(val) ? val : JSON.stringify(val)
+            queries[key] = _.isString(val) ? val : JSON.stringify(val)
           }
         }
 
         this.query(queries)
       }
       // add headers
-      if (size(request_modifier.headers)) this.set(request_modifier.headers)
+      if (_.size(request_modifier.headers)) this.set(request_modifier.headers)
     }
     __original_SuperAgent_end.apply(this, args)
   }
