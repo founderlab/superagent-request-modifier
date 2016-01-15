@@ -1,6 +1,6 @@
 {
   "name": "superagent-request-modifier",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Patch superagent to add headers or queries to each request to a given host",
   "main": "lib/index.js",
   "author": {
@@ -9,8 +9,8 @@
   },
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/founderlab/superagent-request-modifier"
+    "type": "git",
+    "url": "https://github.com/founderlab/superagent-request-modifier"
   },
   "scripts": {
     "prepublish": "rm -rf ./lib && babel ./src --ignore '/node_modules/' --out-dir ./lib",
