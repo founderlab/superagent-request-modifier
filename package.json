@@ -1,6 +1,6 @@
 {
   "name": "superagent-request-modifier",
-  "version": "0.1.1",
+  "version": "0.10.1",
   "description": "Patch superagent to add headers or queries to each request to a given host",
   "main": "lib/index.js",
   "author": {
