@@ -32,22 +32,22 @@ class RequestModifier {
   }
 }
 
-let request_modifier = null
+let requestModifier = null
 export default function configure(superagent, options) {
-  request_modifier = new RequestModifier(options)
+  requestModifier = new RequestModifier(options)
 
   // Patch superagents .end()
-  const __original_SuperAgent_end = superagent.Request.prototype.end
+  const __originalSuperAgentEnd = superagent.Request.prototype.end
   superagent.Request.prototype.end = function end(...args) {
-    if (request_modifier.owns(this.url)) {
+    if (requestModifier.owns(this.url)) {
 
       // add queries
-      if (_.size(request_modifier.queries)) {
+      if (_.size(requestModifier.queries)) {
         const queries = {}
 
-        for (const key in request_modifier.queries) {
+        for (const key in requestModifier.queries) {
           if (!this.url.match(new RegExp(`[?&]${key}`))) {
-            const val = request_modifier.queries[key]
+            const val = requestModifier.queries[key]
             queries[key] = _.isString(val) ? val : JSON.stringify(val)
           }
         }
@@ -55,10 +55,10 @@ export default function configure(superagent, options) {
         this.query(queries)
       }
       // add headers
-      if (_.size(request_modifier.headers)) this.set(request_modifier.headers)
+      if (_.size(requestModifier.headers)) this.set(requestModifier.headers)
     }
-    __original_SuperAgent_end.apply(this, args)
+    __originalSuperAgentEnd.apply(this, args)
   }
 
-  return request_modifier
+  return requestModifier
 }
