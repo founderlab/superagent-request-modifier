@@ -1,5 +1,5 @@
 {
   "stage": 0,
-  "optional": "runtime",
+  "optional": ["runtime"],
   "loose": "all",
 }
